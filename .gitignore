@@ -1,0 +1,24 @@
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+Gemfile.lock
+
+# Secrets — NEVER commit
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.mobileprovision
+secrets/
+credentials/
+*_credentials.json
+.netrc
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp

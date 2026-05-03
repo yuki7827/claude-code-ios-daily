@@ -1,0 +1,21 @@
+title: Claude Code × iOS 日次キャッチアップ
+description: Claude Code を iOS 開発で活用するための最新ノウハウを毎朝 8:00 JST に自動更新
+theme: minima
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+lang: ja
+
+minima:
+  date_format: "%Y-%m-%d"
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - CLAUDE.md
+  - README.md
+  - .gitignore
