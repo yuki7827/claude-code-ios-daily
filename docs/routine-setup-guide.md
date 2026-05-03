@@ -233,8 +233,22 @@ CLI から:
 ### E. ネットワーク allowlist 外のサイトが取れない
 
 - 症状: `403` や接続エラー
-- 仕様: Routine 環境はデフォルトで Trusted ドメインのみ通す（github, npm, pypi, docker 等）
-- 対処: 環境設定で **Custom** を選び、必要ドメインを allowlist に追加。または **Full** にする（緩めすぎ注意）
+- 仕様: Routine 環境はデフォルトで Trusted ドメインのみ通す（github, npm, pypi, docker 等）。Zenn / Qiita / Reddit / dev.to / Hacker News / はてブ等は**入っていない**
+- 対処の優先度:
+  1. **まず WebSearch で済ませる**（後述）。これで OK なケースが大半
+  2. それでも直接 fetch が必要なら、環境設定で **Custom** を選び、必要ドメインを allowlist に追加
+  3. allowlist が膨らみすぎる場合のみ **Full**（業務リポでは非推奨）
+
+#### WebSearch と WebFetch の決定的な違い
+
+| ツール | 経路 | allowlist の影響 |
+|--------|------|-----------------|
+| **WebSearch** | Anthropic の検索 API 経由。結果テキストが返る | **受けない**（任意サイトの内容が取れる） |
+| **WebFetch** | VM から直接 URL に HTTP fetch | **受ける**（Trusted 外は 403） |
+
+このリポの Routine が Zenn / Qiita を読めているのは、WebSearch で取っているから。
+別 Routine で 403 になる場合、Agent が最初から WebFetch で URL を直接取りに行こうとしている可能性が高い。
+**プロンプト/CLAUDE.md で「まず WebSearch、URL の本文が必要な時のみ WebFetch」と方針を書く**だけで多くのケースは解決する。
 
 ### F. 同じネタが連日載る
 
