@@ -6,6 +6,9 @@ categories: [daily]
 tags: [claude-code, ios]
 ---
 
+## 🆕 公式アップデート
+- 本日は新規の公式アップデートなし
+
 ## 🛠 GitHub の動き
 
 - [XcodeBuildMCP v2.5.0-beta.1](https://github.com/getsentry/XcodeBuildMCP/releases) — 4/30 公開のベータ大型更新。MCP クライアント・CLI 全体に「Structured Outputs」を導入し、JSON スキーマ検証済みの機械可読結果を返すように。tvOS/watchOS/visionOS に対応したプラットフォーム自動検出セットアップウィザード、ビルドのライブ進捗表示、シミュレーター向けキーボード操作ツールも追加。シェルインジェクション・パストラバーサルの脆弱性修正も含む。
